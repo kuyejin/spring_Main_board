@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- 에노테이션방식 -->
+	 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+  	<context:component-scan base-package="edu.bit.board.aop"></context:component-scan>   
+	
+	
+	<bean id = "logAdvice" class="edu.bit.board.aop.LogAdvice">
+	</bean>
+	
+	<!-- AOP설정  -->
+	<aop:config>
+      <aop:aspect ref="logAdvice">				<!--edu.bit.board 이 패키지에 있는 모든 함수 (간단한 설명) -->
+         <aop:pointcut id="publicM" expression="within(edu.bit.board..*)"/>
+         <aop:before pointcut-ref="publicM" method="printLogging" />
+      </aop:aspect>   
+    </aop:config>	 
+    <!--printLogging 함수를 within(edu.bit.board..*) 여기에 적용 하겠다.  -->
+	<!--그러면서 모든 함수의 시작 부분에 적용 aop:before  -->
+	
+
+</beans>
