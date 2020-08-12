@@ -3,6 +3,7 @@ package edu.bit.board.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.bit.board.mapper.BoardMapper;
 import edu.bit.board.vo.BoardVO;
@@ -77,7 +78,9 @@ public class BoardServiceImpl implements BoardService{
 //			          int bGroup, int bStep,int bIndent) {
 //		log.info("getreply........");
 //		mapper.insertReply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent);
-//	}		
+//	}	
+	
+	@Transactional(rollbackFor = Exception.class) 
 	@Override
 	public void reply(BoardVO boardVO) {		
 		log.info("getreply........");				
@@ -89,6 +92,8 @@ public class BoardServiceImpl implements BoardService{
 	  컨트롤러에서는 묶은것은 한개로 호출한다 ->이 방법으로 구현해야 한다.
 	  서비스단은 비즈니스로직단이기 때문에 여기서 작업을 처리해야한다. 
 	  컨트롤러는 로직을 위한단이 아니다 -> 캡슐화되어있어야 한다. */
+	
+	//
 	
 
 

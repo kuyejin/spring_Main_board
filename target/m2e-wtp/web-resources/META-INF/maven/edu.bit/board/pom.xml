@@ -152,7 +152,8 @@
          <artifactId>spring-jdbc</artifactId>
          <version>${org.springframework-version}</version>
       </dependency>
-      <dependency>
+      
+      <dependency> <!-- 트랜잭션 -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-tx</artifactId>
          <version>${org.springframework-version}</version>
