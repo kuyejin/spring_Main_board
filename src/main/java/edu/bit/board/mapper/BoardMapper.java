@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
+import edu.bit.board.page.Criteria;
 import edu.bit.board.vo.BoardVO;
 
 
@@ -57,6 +58,21 @@ public interface BoardMapper {
 // [upHit]==================================================================================================	
 	@Update("update mvc_board set bHit = bHit + 1 where bId = #{bno}")
 	public abstract void upHit(int bno);
+	
+	
+	
+	
+	
+	public List<BoardVO> getListWithPaging(Criteria cri);
+
+	public int getTotalCount(Criteria cri);
+	
+	
+	
+	
+	
+	
+	
 }	
 	
 	

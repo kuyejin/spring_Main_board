@@ -2,6 +2,7 @@ package edu.bit.board.service;
 
 import java.util.List;
 
+import edu.bit.board.page.Criteria;
 import edu.bit.board.vo.BoardVO;
 
 public interface BoardService {
@@ -27,6 +28,15 @@ public interface BoardService {
 	
 	//public abstract void modify(int bId, String bName, String bTitle, String bContent);
 	public abstract void modify(BoardVO boardVO);
+	
+	
+	
+	
+	
+	
+	public int getTotal(Criteria cri);
+	
+	public List<BoardVO> getList(Criteria criteria);
 
 
 	

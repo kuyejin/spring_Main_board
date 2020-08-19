@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.bit.board.mapper.BoardMapper;
+import edu.bit.board.page.Criteria;
+import edu.bit.board.page.PageDTO;
 import edu.bit.board.service.BoardService;
 import edu.bit.board.vo.BoardVO;
 import lombok.AllArgsConstructor;
@@ -161,6 +163,24 @@ public class BoardController {
 	      log.info("ajaxList");
 	      return "ajaxlist";
 	   }
+	   
+	   
+	   
+	   
+	   @GetMapping("/list3") //void이므로 list3는 jsp여야 한다.
+		 public void list2(Criteria cri, Model model) {	
+			 log.info("list3");
+			 log.info(cri);
+			 model.addAttribute("list", service.getList(cri));	
+			 
+			 int total = service.getTotal(cri);
+			 log.info("total" + total);
+			 
+			 model.addAttribute("pageMaker", new PageDTO(cri,total));	
+		 }
+	   
+	   
+	   
 	
 }
 	
