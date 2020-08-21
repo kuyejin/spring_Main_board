@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -141,7 +142,7 @@ public class BoardController {
 //		return "redirect:list";
 //	}
 	
-	@GetMapping("/modify") 
+	@PostMapping("/modify") 
 	public String modify (BoardVO boardVO, Model model) {
 		log.info("modify");		
 		service.modify(boardVO);					
@@ -178,7 +179,7 @@ public class BoardController {
 			 
 			 model.addAttribute("pageMaker", new PageDTO(cri,total));	
 		 }
-	   
+	   //Criteria´Â Ä¿¸àµå °´Ã¼
 	   
 	   
 	

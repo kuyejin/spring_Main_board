@@ -30,16 +30,16 @@
 	
 	<!-- 컨트롤러에 적용시키기 위함. -->
 	<!-- AOP설정 -->
-	<aop:config>
+ 	<aop:config>
       <aop:aspect ref="logAdvice">
          <aop:pointcut id="publicM" expression="within(edu.bit.board.*)"/>
          <aop:before pointcut-ref="publicM" method="printLogging" />
       </aop:aspect>   
-   </aop:config>
+   </aop:config> 
    
    
     <!-- 인터셉터 객체 생성 -->
-   <beans:bean id="boardInterceptor" class="edu.bit.board.interceptor.BoardInterceptor">
+    <beans:bean id="boardInterceptor" class="edu.bit.board.interceptor.BoardInterceptor">
    </beans:bean>
    
    <!-- Interceptor 설정 -->
@@ -49,7 +49,7 @@
            <exclude-mapping path="/resources/**"/>
            <beans:ref bean="boardInterceptor"/>
        </interceptor>
-   </interceptors>
+   </interceptors> 
    
    
    

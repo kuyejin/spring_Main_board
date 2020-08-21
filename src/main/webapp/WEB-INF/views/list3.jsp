@@ -37,7 +37,10 @@
 		</c:if>
 
 		<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-			<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
+		    <script type="text/javascript">
+		        console.log('${pageMaker.cri.pageNum == idx?'같음':'다름'}'); //디버깅하는방법
+		    </script>
+			<c:out value="${pageMaker.cri.pageNum == idx?'':''}" /><!-- 의미없음  -->
 			<a href="list3${pageMaker.makeQuery(idx)}">${idx}</a>
 		</c:forEach>
 		
