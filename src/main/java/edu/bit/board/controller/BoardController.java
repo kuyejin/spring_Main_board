@@ -23,6 +23,7 @@ import lombok.extern.log4j.Log4j;
 /**
  * Handles requests for the application home page.
  */
+//test
 @Controller
 @Log4j
 @AllArgsConstructor  //롬복. 컨트롤러에 대해서 보드서비스 데이터 맴버를 집어 넣으라 해서 자동으로 생성됨. 생성자가 있으면 아래서 auto로 넣어준다.
